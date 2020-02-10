@@ -21,9 +21,9 @@ namespace MakeOutboundCall
             FreeClimbClient client = new FreeClimbClient (acctId, acctToken);
             Console.WriteLine(acctId);
             Console.WriteLine(acctToken);
-            string to = "+17733133558";
-            string from = "+19159969243";
-            string appId = "APda384d410b8a6df51fc54ed1abdeaad380d627db";
+            string to = "";
+            string from = "";
+            string appId = "";
             client.getCallsRequester.create(to, from, appId );
             CreateWebHostBuilder(args).Build().Run();
         }
