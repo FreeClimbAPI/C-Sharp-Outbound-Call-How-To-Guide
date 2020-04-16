@@ -1,6 +1,6 @@
 # C# - Make an Outbound Call
 
-This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/accept-an-incoming-call#section-c). Specifically, the project will:
+This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/how-to-make-an-outbound-call#section-c). Specifically, the project will:
 
 - Create an outbound call and control call
 
