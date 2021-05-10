@@ -17,10 +17,10 @@ namespace MakeOutboundCall
         public static void Main(string[] args)
         {
             string acctId = getAcctId ();
-            string acctToken = getAuthToken ();
-            FreeClimbClient client = new FreeClimbClient (acctId, acctToken);
+            string apiKey = getApiKey ();
+            FreeClimbClient client = new FreeClimbClient (acctId, apiKey);
             Console.WriteLine(acctId);
-            Console.WriteLine(acctToken);
+            Console.WriteLine(apiKey);
             string to = "";
             string from = "";
             string appId = "";
@@ -36,8 +36,8 @@ namespace MakeOutboundCall
             return System.Environment.GetEnvironmentVariable("ACCOUNT_ID");
         }
 
-        private static string getAuthToken () {
-          return System.Environment.GetEnvironmentVariable("AUTH_TOKEN");
+        private static string getApiKey () {
+          return System.Environment.GetEnvironmentVariable("API_KEY");
         }
 
     }
