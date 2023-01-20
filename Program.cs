@@ -37,6 +37,10 @@ namespace MakeOutboundCall
         {
             return System.Environment.GetEnvironmentVariable("APP_ID");
         }
+        private static string getCallConnectURL()
+        {
+            return System.Environment.GetEnvironmentVariable("CALL_CONNECT_URL");
+        }
         public static void Main(string[] args)
         {
             Configuration config = new Configuration();
@@ -49,7 +53,8 @@ namespace MakeOutboundCall
             string to = getToNumber();
             string from = getFromNumber();
             string appId = getAppID();
-            MakeCallRequest makeCallRequest = new MakeCallRequest(from, to, appId, null, null, null, 30, null, false, "https://22a4-63-209-137-19.ngrok.io/connect");
+            string callConnectUrl = getCallConnectURL();
+            MakeCallRequest makeCallRequest = new MakeCallRequest(from, to, appId, null, null, null, 30, null, false, callConnectUrl);
             apiInstance.MakeACall(makeCallRequest);
             CreateWebHostBuilder(args).Build().Run();
         }
