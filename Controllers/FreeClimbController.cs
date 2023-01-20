@@ -1,26 +1,30 @@
-﻿using com.freeclimb;
-using com.freeclimb.percl;
-using com.freeclimb.webhooks.call;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using freeclimb.Api;
+using freeclimb.Client;
+using freeclimb.Model;
 
-namespace MakeOutboundCall.Controllers {
-  [Route ("connect")]
-  [ApiController]
-  public class FreeClimbController : ControllerBase {
+namespace MakeOutboundCall.Controllers
+{
+    [Route("/connect")]
+    [ApiController]
+    public class FreeClimbController : ControllerBase
+    {
 
-    [HttpPost]
-    public ActionResult CallConnect (CallStatusCallback freeClimbRequest) {
-        // Create an empty PerCL script container
-        PerCLScript script = new PerCLScript ();
-        Say say = new Say();
-        say.setText("You just got called by the C sharp S D K!");
-        Console.WriteLine(freeClimbRequest.getCallStatus);
-       
-        script.Add (say);
+        [HttpPost]
+        public ActionResult CallConnect()
+        {
+            // Debug.WriteLine(request.Status);
+            // Create an empty PerCL script container
+            PerclScript script = new PerclScript(new List<PerclCommand>());
+            Say say = new Say("You just got called by the C sharp S D K!");
+            Debug.WriteLine(say.ToJson());
 
-        // Convert PerCL container to JSON and append to response
-        return Content (script.toJson (), "application/json");
+            script.Commands.Add(say);
+            // Convert PerCL container to JSON and append to response
+            return Content(script.ToJson(), "application/json");
+        }
     }
-  }
 }
